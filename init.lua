@@ -8,9 +8,9 @@ vim.opt.wrap = false -- do not wrap lines by default
 vim.opt.scrolloff = 10 -- keep 10 lines above/below cursor
 vim.opt.sidescrolloff = 10 --keep 10 lines to left/right of cursor
 
-vim.opt.tabstop = 2 -- tabwidth
-vim.opt.shiftwidth = 2 -- indent width
-vim.opt.softtabstop = 2 -- soft tab stop not tabs on tab/backspace
+vim.opt.tabstop = 4 -- tabwidth
+vim.opt.shiftwidth = 4 -- indent width
+vim.opt.softtabstop = 4 -- soft tab stop not tabs on tab/backspace
 vim.expandtab = true -- use spaces instead of tabs
 vim.opt.smartindent = true -- smart auto-indent
 vim.opt.autoindent = true --copy indent from current line
@@ -47,10 +47,14 @@ vim.opt.splitright = true
 vim.opt.splitbelow = true
 vim.opt.confirm = true
 
+vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+
 vim.pack.add {
 	'https://github.com/catppuccin/nvim',
 	'https://github.com/folke/tokyonight.nvim',
-	'https://github.com/neovim/nvim-lspconfig'
+	'https://github.com/neovim/nvim-lspconfig',
+	'https://github.com/folke/snacks.nvim',
+	'https://github.com/windwp/nvim-autopairs'
 }
 
 vim.cmd.colorscheme('tokyonight')
@@ -60,13 +64,25 @@ vim.schedule(function()
 	vim.o.clipboard = 'unnamedplus'
 end)
 
+-- ========================
+-- EXTRA API STUFF 
+-- ========================
 vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
 vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'none' })
 vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
 vim.api.nvim_set_hl(0, "ColorColumn", { bg = "none" })
+
+vim.api.nvim_create_autocmd('TextYankPost', {
+  desc = 'Highlight when yanking (copying) text',
+  group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
+  callback = function()
+    vim.hl.on_yank()
+  end,
+})
+
+
 vim.keymap.set('c', 'jk', '<C-c>', { desc = 'Exit command mode'})
 vim.keymap.set('i', 'jk', '<Esc>', { desc = 'Exit  insert mode'})
 vim.keymap.set('v', 'jk', '<Esc>', { desc = 'Exit  visual mode'})
 vim.keymap.set('t', 'jk', '<C-\\><C-n>', { desc = 'Exit terminal mode'})
-
 

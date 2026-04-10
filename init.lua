@@ -54,7 +54,8 @@ vim.pack.add {
 	'https://github.com/folke/tokyonight.nvim',
 	'https://github.com/neovim/nvim-lspconfig',
 	'https://github.com/folke/snacks.nvim',
-	'https://github.com/windwp/nvim-autopairs'
+	'https://github.com/windwp/nvim-autopairs',
+	'https://github.com/nvim-telescope/telescope.nvim'
 }
 
 vim.cmd.colorscheme('tokyonight')
@@ -86,3 +87,8 @@ vim.keymap.set('i', 'jk', '<Esc>', { desc = 'Exit  insert mode'})
 vim.keymap.set('v', 'jk', '<Esc>', { desc = 'Exit  visual mode'})
 vim.keymap.set('t', 'jk', '<C-\\><C-n>', { desc = 'Exit terminal mode'})
 
+
+vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
+vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
+vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
+vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })

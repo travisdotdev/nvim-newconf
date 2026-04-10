@@ -20,6 +20,10 @@
       "rev": "ad9ede6a9cddf16cedbd31b8932d6dcdee9b716e",
       "src": "https://github.com/folke/snacks.nvim"
     },
+    "telescope.nvim": {
+      "rev": "f7c673b8e46e8f233ff581d3624a517d33a7e264",
+      "src": "https://github.com/nvim-telescope/telescope.nvim"
+    },
     "tokyonight.nvim": {
       "rev": "cdc07ac78467a233fd62c493de29a17e0cf2b2b6",
       "src": "https://github.com/folke/tokyonight.nvim"

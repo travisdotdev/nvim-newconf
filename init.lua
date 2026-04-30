@@ -1,3 +1,5 @@
+vim.g.mapleader = ' '
+
 -- ========================
 -- OPTIONS
 -- ========================
@@ -48,6 +50,8 @@ vim.opt.splitbelow = true
 vim.opt.confirm = true
 
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+vim.opt.timeoutlen = 300
+
 
 vim.pack.add {
 	'https://github.com/catppuccin/nvim',
@@ -55,11 +59,24 @@ vim.pack.add {
 	'https://github.com/neovim/nvim-lspconfig',
 	'https://github.com/folke/snacks.nvim',
 	'https://github.com/windwp/nvim-autopairs',
-	'https://github.com/nvim-telescope/telescope.nvim'
+	'https://github.com/nvim-telescope/telescope.nvim',
+	'https://github.com/nvim-lua/plenary.nvim',
+	'https://github.com/folke/which-key.nvim',
+	'https://github.com/akinsho/toggleterm.nvim',
 }
+
+
+require('telescope').setup({})
 
 vim.cmd.colorscheme('tokyonight')
 
+require('lua/keymaps')
+require('which-key').setup({})
+require('toggleterm').setup({
+    size = 15,
+    open_mapping = '<leader>tf',
+    direction = 'horizontal',
+})
 
 vim.schedule(function()
 	vim.o.clipboard = 'unnamedplus'
@@ -82,20 +99,4 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 
 
-vim.keymap.set('c', 'jk', '<C-c>', { desc = 'Exit command mode'})
-vim.keymap.set('i', 'jk', '<Esc>', { desc = 'Exit  insert mode'})
-vim.keymap.set('v', 'jk', '<Esc>', { desc = 'Exit  visual mode'})
-vim.keymap.set('t', 'jk', '<C-\\><C-n>', { desc = 'Exit terminal mode'})
 
-
-vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
-vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
-vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
-vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
-
-
--- Resize windows with arrow keys
-vim.keymap.set('n', '<C-Up>', '<cmd>resize +2<cr>', { desc = 'Increase window height' })
-vim.keymap.set('n', '<C-Down>', '<cmd>resize -2<cr>', { desc = 'Decrease window height' })
-vim.keymap.set('n', '<C-Left>', '<cmd>vertical resize -2<cr>', { desc = 'Decrease window width' })
-vim.keymap.set('n', '<C-Right>', '<cmd>vertical resize +2<cr>', { desc = 'Increase window width' })

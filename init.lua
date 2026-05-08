@@ -63,6 +63,7 @@ vim.pack.add {
 	'https://github.com/nvim-lua/plenary.nvim',
 	'https://github.com/folke/which-key.nvim',
 	'https://github.com/akinsho/toggleterm.nvim',
+	'https://github.com/lewis6991/gitsigns.nvim',
 }
 
 
@@ -71,11 +72,13 @@ require('telescope').setup({})
 vim.cmd.colorscheme('tokyonight')
 
 require('keymaps')
+require('gitsigns').setup()
 require('which-key').setup({})
 require('toggleterm').setup({
     size = 15,
     open_mapping = '<leader>tf',
     direction = 'horizontal',
+	shade_terminals = false,
 })
 
 vim.schedule(function()
@@ -89,6 +92,7 @@ vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
 vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'none' })
 vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
 vim.api.nvim_set_hl(0, "ColorColumn", { bg = "none" })
+vim.api.nvim_set_hl(0, 'NormalNC', { bg = 'none' })
 
 vim.api.nvim_create_autocmd('TextYankPost', {
   desc = 'Highlight when yanking (copying) text',

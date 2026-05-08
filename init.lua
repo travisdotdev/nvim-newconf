@@ -70,7 +70,7 @@ require('telescope').setup({})
 
 vim.cmd.colorscheme('tokyonight')
 
-require('lua/keymaps')
+require('keymaps')
 require('which-key').setup({})
 require('toggleterm').setup({
     size = 15,

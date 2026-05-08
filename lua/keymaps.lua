@@ -54,3 +54,13 @@ vim.keymap.set('n', '<leader>sb', telescope.buffers,    { desc = 'Find buffers' 
 vim.keymap.set('n', '\\', '<cmd>Neotree reveal<cr>', { desc = 'Neotree reveal', silent = true })
 vim.keymap.set('n', '<leader>e', '<cmd>Neotree toggle<cr>', { desc = 'Toggle file explorer' })
 
+-- Snacks
+vim.keymap.set('n', '<leader>.', function() Snacks.scratch() end,                  { desc = 'Toggle scratch buffer' })
+vim.keymap.set('n', '<leader>n', function() Snacks.notifier.show_history() end,    { desc = 'Notification history' })
+vim.keymap.set('n', '<leader>bd', function() Snacks.bufdelete() end,               { desc = 'Delete buffer' })
+vim.keymap.set('n', '<leader>cR', function() Snacks.rename.rename_file() end,      { desc = 'Rename file' })
+vim.keymap.set('n', '<leader>gb', function() Snacks.git.blame_line() end,          { desc = 'Git blame line' })
+vim.keymap.set('n', '<leader>gB', function() Snacks.gitbrowse() end,               { desc = 'Git browse' })
+vim.keymap.set('n', '<leader>ad', function() Snacks.dashboard() end,               { desc = 'Open dashboard' })
+vim.keymap.set('n', ']]', function() Snacks.words.jump(vim.v.count1) end,          { desc = 'Next reference' })
+vim.keymap.set('n', '[[', function() Snacks.words.jump(-vim.v.count1) end,         { desc = 'Prev reference' })

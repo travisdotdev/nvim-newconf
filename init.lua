@@ -72,7 +72,7 @@ vim.pack.add {
 
 
 require('plugins')
-
+require('keymaps')
 vim.cmd.colorscheme('tokyonight')
 
 vim.schedule(function()

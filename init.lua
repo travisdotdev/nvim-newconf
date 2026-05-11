@@ -53,6 +53,13 @@ vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 vim.opt.timeoutlen = 300
 
 
+vim.schedule(function()
+	vim.o.clipboard = 'unnamedplus' -- clipboard system sync
+end)
+
+-- ========================
+-- PLUGINS 
+-- ========================
 vim.pack.add {
 	'https://github.com/catppuccin/nvim',
 	'https://github.com/folke/tokyonight.nvim',
@@ -68,6 +75,9 @@ vim.pack.add {
 	'https://github.com/nvim-tree/nvim-web-devicons',
 	'https://github.com/nvim-neo-tree/neo-tree.nvim',
 	'https://github.com/MunifTanjim/nui.nvim',
+	'https://github.com/akinsho/bufferline.nvim',
+    'https://github.com/nvim-tree/nvim-web-devicons',
+	'https://github.com/akinsho/bufferline.nvim',
 	{
 		src = 'https://github.com/nvim-treesitter/nvim-treesitter',
 		branch = 'main',
@@ -75,15 +85,11 @@ vim.pack.add {
 	},
 }
 
-
 require('plugins')
 require('keymaps')
 require('lsp')
+require('bufferline_config')
 vim.cmd.colorscheme('tokyonight')
-
-vim.schedule(function()
-	vim.o.clipboard = 'unnamedplus'
-end)
 
 -- ========================
 -- EXTRA API STUFF 

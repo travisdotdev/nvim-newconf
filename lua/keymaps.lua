@@ -64,3 +64,8 @@ vim.keymap.set('n', '<leader>gB', function() Snacks.gitbrowse() end,            
 vim.keymap.set('n', '<leader>ad', function() Snacks.dashboard() end,               { desc = 'Open dashboard' })
 vim.keymap.set('n', ']]', function() Snacks.words.jump(vim.v.count1) end,          { desc = 'Next reference' })
 vim.keymap.set('n', '[[', function() Snacks.words.jump(-vim.v.count1) end,         { desc = 'Prev reference' })
+
+-- Bufferline
+vim.keymap.set('n', '<Tab>', '<cmd>bnext<cr>', { desc = 'Next buffer' })
+vim.keymap.set('n', '<S-Tab>', '<cmd>bprevious<cr>', { desc = 'Previous buffer' })
+vim.keymap.set('n', '<leader>bd', '<cmd>bdelete<cr>', { desc = 'Delete buffer' })

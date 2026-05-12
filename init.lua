@@ -42,7 +42,7 @@ vim.opt.mouse = "a" -- enbale mouse support
 vim.opt.modifiable = true -- allow buffer modifications
 vim.opt.encoding = "utf-8" -- set encoding
 
-vim.opt.undofile = true 
+vim.opt.undofile = true
 vim.opt.showmode = false
 vim.opt.breakindent = true
 vim.opt.splitright = true
@@ -83,7 +83,11 @@ vim.pack.add {
     'https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim',
     'https://github.com/neovim/nvim-lspconfig',
     'https://github.com/folke/lazydev.nvim',
-	{ 
+    'https://github.com/mfussenegger/nvim-dap-python',
+	'https://github.com/mfussenegger/nvim-dap',
+    'https://github.com/rcarriga/nvim-dap-ui',
+    'https://github.com/nvim-neotest/nvim-nio',
+	{
 		src = 'https://github.com/saghen/blink.cmp',
 		version = vim.version.range('1.0'),
 	},
@@ -99,6 +103,7 @@ require('keymaps')
 require('lsp')
 require('blink')
 require('bufferline_config')
+require('debugger')
 vim.cmd.colorscheme('tokyonight')
 
 -- ========================

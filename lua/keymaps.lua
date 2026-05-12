@@ -57,7 +57,7 @@ vim.keymap.set('n', '<leader>e', '<cmd>Neotree toggle<cr>', { desc = 'Toggle fil
 -- Snacks
 vim.keymap.set('n', '<leader>.', function() Snacks.scratch() end,                  { desc = 'Toggle scratch buffer' })
 vim.keymap.set('n', '<leader>n', function() Snacks.notifier.show_history() end,    { desc = 'Notification history' })
-vim.keymap.set('n', '<leader>bd', function() Snacks.bufdelete() end,               { desc = 'Delete buffer' })
+vim.keymap.set('n', '<leader>bx', function() Snacks.bufdelete() end,               { desc = 'Delete buffer' })
 vim.keymap.set('n', '<leader>cR', function() Snacks.rename.rename_file() end,      { desc = 'Rename file' })
 vim.keymap.set('n', '<leader>gb', function() Snacks.git.blame_line() end,          { desc = 'Git blame line' })
 vim.keymap.set('n', '<leader>gB', function() Snacks.gitbrowse() end,               { desc = 'Git browse' })
@@ -88,5 +88,3 @@ vim.api.nvim_create_autocmd('LspAttach', {
         map(']d', vim.diagnostic.goto_next, 'Next diagnostic')
     end,
 })
-
-

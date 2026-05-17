@@ -118,8 +118,6 @@ vim.api.nvim_set_hl(0, 'BlinkCmpMenu', { bg = 'none' })
 vim.api.nvim_set_hl(0, 'BlinkCmpMenuBorder', { bg = 'none' })
 vim.api.nvim_set_hl(0, 'BlinkCmpDoc', { bg = 'none' })
 vim.api.nvim_set_hl(0, 'BlinkCmpDocBorder', { bg = 'none' })
--- vim.api.nvim_set_hl(0, 'TelescopeNormal', {bg = 'none'})
--- vim.api.nvim_set_hl(0, 'TelescopeBorder', {bg = 'none'})
 
 
 vim.api.nvim_create_autocmd('TextYankPost', {
